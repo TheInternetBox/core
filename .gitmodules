@@ -10,8 +10,8 @@
 	shallow = true
 [submodule "boot-image_linux"]
 	path = boot-image/linux
-	url = https://github.com/USA-RedDragon/linux
-	branch = rpi-router
+	url = https://github.com/TheInternetBox/linux
+	branch = internetbox
 	shallow = true
 [submodule "busybox"]
 	path = busybox
