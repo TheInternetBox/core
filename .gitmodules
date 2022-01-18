@@ -17,3 +17,7 @@
 	path = busybox
 	url = https://git.busybox.net/busybox/
 	branch = refs/tags/1_35_0
+[submodule "system_packages"]
+	path = system/packages
+	url = https://github.com/TheInternetBox/packages
+	branch = main
