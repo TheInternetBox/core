@@ -43,8 +43,7 @@ KBUILD_BUILD_TIMESTAMP='' sudo make -C ../boot-image/linux ARCH=arm64 CC="ccache
 
 # Bootstrap packages
 cd packages
-echo PWD=$(pwd)
-echo sudo env LFS_TARGET=$LFS_TARGET LFS_HOST=$LFS_HOST LFS=$LFS ./build.sh
+sudo env LFS_TARGET=$LFS_TARGET LFS_HOST=$LFS_HOST LFS=$LFS ./build.sh
 cd -
 
 # Unmount image
