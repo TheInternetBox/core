@@ -1,3 +1,4 @@
+# CI requires branch to be defined
 [submodule "rpi-usbboot"]
 	path = rpi-usbboot
 	url = https://github.com/raspberrypi/usbboot
@@ -9,10 +10,14 @@
 	shallow = true
 [submodule "boot-image_linux"]
 	path = boot-image/linux
-	url = https://github.com/USA-RedDragon/linux
-	branch = rpi-router
+	url = https://github.com/TheInternetBox/linux
+	branch = internetbox
 	shallow = true
 [submodule "busybox"]
 	path = busybox
 	url = https://git.busybox.net/busybox/
 	branch = refs/tags/1_35_0
+[submodule "system_packages"]
+	path = system/packages
+	url = https://github.com/TheInternetBox/packages
+	branch = main
