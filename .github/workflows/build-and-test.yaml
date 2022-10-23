@@ -18,13 +18,13 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2.4.0
+      uses: actions/checkout@v3.1.0
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         submodules: recursive
 
     - name: Cache ccache
-      uses: actions/cache@v2.1.7
+      uses: actions/cache@v3.0.11
       with:
         path: |
           ~/.ccache
