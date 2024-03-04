@@ -36,6 +36,10 @@ This is a POC, but a predecessor of this appliance has been running in my networ
   - `eeprom` - Contains eeprom programming and configuration
   - `keys` - Contains secure boot keys. Generate your own in the PEM format :)
   - `lockdown` - Burns the eeprom with `program_pubkey` and `revoke_devkey`, and `program_jtag_lock`. Only use this if you want to lock the bootloader
+- `system` - Contains the actual system components, including packages
+  - `build-scripts` - Contains the scripts used to build various components of the OS
+    - `stage1` - Scripts pertaining to building a toolchain appropriate for cross-compiling the rest of the OS
+    - `stage2` - Scripts pertaining to using the stage1 toolchain to build OS packages
 
 ## Security Enhancments
 
@@ -74,6 +78,14 @@ cd <cloned repo>
 git submodule update --recursive --init
 ```
 
+### Required Host Software
+
+- cmake
+- ninja
+- xz-utils
+- clang
+- ccache
+
 ### Building the imges
 
 Note: If you want to build the debuggable version with kernel console via uart on GPIO pins, run `export DEBUG=true` in your shell before running any scripts.
@@ -101,3 +113,12 @@ Note: If you want to build the debuggable version with kernel console via uart o
    - This will build the `boot.img` and `boot.sig`. These will need to be placed in the `emmc` FAT32 boot partition.
 
 3. The `system.img` must be placed onto the `emmc` system partition.
+
+   - Build the `system.img.xz` image:
+
+       ```bash
+         cd system
+         ./create-system-image.sh
+       ```
+
+   - This will build the `system.img.xz`. This will need to be flashed in the `emmc`. It contains an ext4 system partition.
